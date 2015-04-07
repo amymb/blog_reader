@@ -1,0 +1,8 @@
+<%=current_user.username%>
+
+<%if current_user.wordpress_username%>
+  <%=link_to "Edit Profile", edit_user_path(@user)%>
+  <%=link_to "Blogs", user_blogs_path(@user)%>
+<%else%>
+  <%=link_to "Add Wordpress Info", edit_user_path(@user)%>
+<%end%>
