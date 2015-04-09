@@ -25,14 +25,16 @@ class WordpressAPI
       req.url "/rest/v1.1/sites/#{blog}/posts"
       req.headers['Content-Type'] = 'application/json'
     end
-    user_id = nil
-    JSON.parse(response.body, symbolize_names: true)[:posts].each do |post|
-      if post[:author][:login] == username
-        user_id = post[:author][:ID]
-        break
+    results = []
+    if JSON.parse(response.body, symbolize_names: true)[:posts]
+      JSON.parse(response.body, symbolize_names: true)[:posts].each do |post|
+        if post[:author][:login] == username
+          results << post[:author][:ID]
+        end
       end
     end
-    user_id
+    user_id = results.first
+    return user_id
   end
 
 
