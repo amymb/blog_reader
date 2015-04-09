@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    if @user.blog
+      @blog_posts = WordpressAPI.new.post_info_for_author(@user.blog.url, @user.wordpress_user_id)
+      if @blog_posts == 403
+        flash.now[:warning] = "Blog url is invalid"
+      else
+        []
+      end
+    end
   end
 
   def edit

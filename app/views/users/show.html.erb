@@ -2,7 +2,12 @@
 
 <%if current_user.wordpress_username%>
   <%=link_to "Edit Profile", edit_user_path(@user)%>
-  <%=link_to "Blogs", user_blogs_path(@user)%>
+  <%=link_to "Add a Blog", new_user_blog_path(@user)%>
 <%else%>
   <%=link_to "Add Wordpress Info", edit_user_path(@user)%>
+<%end%>
+
+<%if current_user.blog%>
+  <%=@user.wordpress_user_id%>
+  <%=link_to @blog_posts.count, blog_posts_path%>
 <%end%>

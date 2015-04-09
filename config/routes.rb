@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "sign-out" => "authentication#destroy"
 
   resources :users do
-    resources :blogs, only:[:index]
+    resources :blogs, only:[:new, :create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
