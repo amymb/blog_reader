@@ -3,6 +3,9 @@ gem 'odyssey'
 gem 'bourbon'
 gem 'neat', '~> 1.7.2'
 
+gem 'bootstrap-sass', '~> 3.3.4.1'
+
+
 
 gem 'faraday', '~> 0.9.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

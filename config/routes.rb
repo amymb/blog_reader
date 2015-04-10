@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'authentication#new'
   get "sign-up" => "registrations#new"
   post "sign-up" => "registrations#create"
   get "sign-in" => "authentication#new"

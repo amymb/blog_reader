@@ -1,8 +1,44 @@
-<br>
+<!-- <br>
 <%@users.each do |user|%>
   <%=link_to user.username, user%>
   <%=user.total_words%>
   <%=user.unique_words_per_total_words%>
   <%=user.flesch_kincaid_avg%>
   <br>
-<%end%>
+<%end%> -->
+<div class = "container">
+  <table class="table">
+    <thead>
+      <tr>
+          <th> UserName</th>
+          <th> Total Wordpress Words </th>
+          <th> Unique words per total words </th>
+          <th> Flesch-Kincaid Grade Level </th>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+      <tr>
+        <div class=col-md-2>
+          <td>
+            <%=link_to user.username, user%>
+          </td>
+        </div>
+        <div class=col-md-2>
+          <td>
+            <%=user.total_words%>
+          </td>
+        </div>
+        <div class = "col-md-2">
+          <td>
+            <%=user.unique_words_per_total_words%>
+          </td>
+        </div>
+        <div class = "col-md-2">
+          <td>
+            <%=user.flesch_kincaid_avg%>
+          </td>
+        </div>
+      </tr>
+    <%end%>
+  </table>
+</div>

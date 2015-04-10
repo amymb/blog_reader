@@ -1,11 +1,85 @@
-<br>
+<!-- <br>
 <%=@user.username%>
 <br>
 <%="Your total words: #{@user.total_words}"%>
-<%="Average total words: #{@user.avg_total_words}"%>
+<%="Average total words: #{@user.unique_words_per_total_words}"%>
 <br>
 <%="Your unique words per total words: #{@user.unique_words_per_total_words}"%>
 <%="Average unique words per total words: #{@user.avg_unique_words_per_total_words}"%>
 <br>
 <%="Your Flesch-Kincaid Grade level #{@user.flesch_kincaid_avg}"%>
-<%="Average Flesch-Kincaid Grade Level #{@user.avg_flesch_kincaid}"%>
+<%="Average Flesch-Kincaid Grade Level #{@user.avg_flesch_kincaid}"%> -->
+<div class = "container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+          <th> <%=@user.username + " Stats"%> </th>
+      </tr>
+    </thead>
+      <tr>
+        <div class=col-md-2>
+          <td> <strong> Your total words: </strong> </td>
+        </div>
+        <div class=col-md-2>
+          <td>
+            <%=@user.total_words%>
+          </td>
+        </div>
+      </tr>
+
+      <tr>
+        <div class=col-md-2>
+          <td> <p class = "strong"> Average total words: </p> </td>
+        </div>
+        <div class=col-md-2>
+          <td>
+            <%=@user.avg_total_words%>
+          </td>
+        </div>
+      </tr>
+
+      <tr>
+        <div class=col-md-2>
+          <td> <strong> Your unique words per total words: </strong> </td>
+        </div>
+        <div class=col-md-2>
+          <td>
+            <%=@user.unique_words_per_total_words%>
+          </td>
+        </div>
+      </tr>
+      <tr>
+        <div class=col-md-2>
+          <td> <p class = "strong"> Average unique words per total words: </p> </td>
+        </div>
+        <div class=col-md-2>
+          <td>
+            <%=@user.avg_unique_words_per_total_words%>
+          </td>
+        </div>
+      </tr>
+
+      <tr>
+        <div class=col-md-2>
+          <td> <strong> Your Flesch-Kincaid grade level: </strong> </td>
+        </div>
+        <div class=col-md-2>
+          <td>
+            <%=@user.flesch_kincaid_avg%>
+          </td>
+        </div>
+      </tr>
+      <tr>
+        <div class=col-md-2>
+          <td> <p class = "strong"> Average Flesch-Kincaid grade level: </p> </td>
+        </div>
+        <div class=col-md-2>
+          <td>
+            <%=@user.avg_flesch_kincaid%>
+          </td>
+        </div>
+      </tr>
+
+  </table>
+
+</div>

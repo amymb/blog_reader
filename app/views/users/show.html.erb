@@ -1,20 +1,51 @@
-<%=@user.username%>
-
-<%if @user.wordpress_username%>
-  <%=link_to "Edit Profile", edit_user_path(@user)%>
-  <%=link_to "Add a Blog", new_user_blog_path(@user)%>
-<%else%>
-  <%=link_to "Add Wordpress Info", edit_user_path(@user)%>
-<%end%>
-
-<%if current_user.blog%>
-  <%@blog_posts.each do |blog_post|%>
-<br>
-    <%=blog_post.title%>
-    <%=blog_post.word_count%>
-    <%=blog_post.unique_words_by_word_count%>
-    <%=blog_post.flesch_kincaid_grade%>
+<div class = "container"%>
+<div class = "page-header">
+  <%if @user.wordpress_username%>
+  <div class="pull-right"><%=link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-info"%></div>
+    <%=link_to "Add a Blog", new_user_blog_path(@user)%>
+  <%else%>
+  <div class="pull-right"><%=link_to "Add Wordpress INfo", edit_user_path(@user), class: "btn btn-info"%></div>
   <%end%>
-<%end%>
 
-<%=link_to "Compare to avg", compare_user_path(@user)%>
+  <h1><%=@user.username%></h1>
+</div>
+
+
+<%if @user.blog%>
+  <table class="table">
+    <thead>
+      <tr>
+          <th> Post Title</th>
+          <th> Word Count</th>
+          <th> Unique Words per Total Words </th>
+          <th> Flesch-Kincaid Grade Level </th>
+      </tr>
+    </thead>
+    <%@blog_posts.each do |blog_post|%>
+      <tr>
+        <div class=col-md-2>
+          <td>
+            <%=blog_post.title%>
+          </td>
+        </div>
+        <div class=col-md-2>
+          <td>
+            <%=blog_post.word_count%>
+          </td>
+        </div>
+        <div class=col-md-2>
+          <td>
+            <%=blog_post.unique_words_by_word_count%>
+          </td>
+        </div>
+        <div class=col-md-2>
+          <td>
+            <%=blog_post.flesch_kincaid_grade%>
+          </td>
+        </div>
+      </tr>
+    <%end%>
+  </table>
+<%end%>
+<div class="pull-right"><%=link_to 'Compare', compare_user_path(@user), class: "btn btn-info"%></div>
+</div>
