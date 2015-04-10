@@ -10,6 +10,10 @@
 <%if flash[:notice]%>
   <%=flash[:notice]%>
 <%end%>
+<%=current_user.username%>
+<%if flash[:warning]%>
+  <%=flash[:warning]%>
+<%end%>
 
 <%if current_user%>
   <%=link_to "Sign Out", sign_out_path%>

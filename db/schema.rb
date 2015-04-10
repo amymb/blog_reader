@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409232636) do
+ActiveRecord::Schema.define(version: 20150410190103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20150409232636) do
     t.date    "date"
     t.integer "blog_id"
     t.integer "user_id"
+    t.float   "flesch_kincaid_grade"
+    t.integer "suggestions"
+    t.integer "words_to_avoid"
+    t.integer "unique_words"
+    t.integer "word_count"
+    t.integer "blog_post_id"
   end
 
   create_table "blogs", force: :cascade do |t|
@@ -36,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150409232636) do
     t.string  "full_name"
     t.string  "password_digest"
     t.string  "wordpress_username"
-    t.string  "role"
+    t.string  "role",               default: "Student"
     t.integer "wordpress_user_id"
   end
 

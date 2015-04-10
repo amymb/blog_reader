@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 gem 'odyssey'
+gem 'bourbon'
+gem 'neat', '~> 1.7.2'
+
 
 gem 'faraday', '~> 0.9.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :blogs, only:[:new, :create]
   end
 
+  get "users/:id/compare" => "users#compare", as: :compare_user
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

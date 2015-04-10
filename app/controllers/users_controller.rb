@@ -1,22 +1,26 @@
 class UsersController < ApplicationController
+before_action :set_user, except:[:index]
+before_action :ensure_role_is_teacher, only:[:index]
+before_action :ensure_self_or_teacher, except: [:index]
+
+  def index
+    @users = User.all
+  end
+
+
   def show
-    @user = User.find(params[:id])
     if @user.blog
-      @blog_posts = WordpressAPI.new.post_info_for_author(@user.blog.url, @user.wordpress_user_id)
-      if @blog_posts == 403
-        flash.now[:warning] = "Blog url is invalid"
-      else
-        []
-      end
+      @blog_posts = @user.blog_posts
     end
   end
 
+  def compare
+  end
+
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "Profile successfully updated"
       redirect_to @user
@@ -27,6 +31,10 @@ class UsersController < ApplicationController
 
 
 private
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:username, :password, :full_name, :email, :wordpress_username)
   end

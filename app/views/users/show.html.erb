@@ -1,6 +1,6 @@
-<%=current_user.username%>
+<%=@user.username%>
 
-<%if current_user.wordpress_username%>
+<%if @user.wordpress_username%>
   <%=link_to "Edit Profile", edit_user_path(@user)%>
   <%=link_to "Add a Blog", new_user_blog_path(@user)%>
 <%else%>
@@ -10,7 +10,11 @@
 <%if current_user.blog%>
   <%@blog_posts.each do |blog_post|%>
 <br>
-    <%=blog_post[:title]%>
-    <%=blog_post[:content].
+    <%=blog_post.title%>
+    <%=blog_post.word_count%>
+    <%=blog_post.unique_words_by_word_count%>
+    <%=blog_post.flesch_kincaid_grade%>
   <%end%>
 <%end%>
+
+<%=link_to "Compare to avg", compare_user_path(@user)%>
