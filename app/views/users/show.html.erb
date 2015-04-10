@@ -8,6 +8,9 @@
 <%end%>
 
 <%if current_user.blog%>
-  <%=@user.wordpress_user_id%>
-  <%=link_to @blog_posts.count, blog_posts_path%>
+  <%@blog_posts.each do |blog_post|%>
+<br>
+    <%=blog_post[:title]%>
+    <%=blog_post[:content].
+  <%end%>
 <%end%>

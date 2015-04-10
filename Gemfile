@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'odyssey'
 
 gem 'faraday', '~> 0.9.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

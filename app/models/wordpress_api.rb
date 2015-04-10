@@ -30,6 +30,7 @@ class WordpressAPI
       JSON.parse(response.body, symbolize_names: true)[:posts].each do |post|
         if post[:author][:login] == username
           results << post[:author][:ID]
+          break
         end
       end
     end
